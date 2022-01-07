@@ -15,7 +15,10 @@ class UserController extends Controller
        $user->email = 'alana_francino@hotmail.com';
        $user->password = Hash::make('Alana2806');
        $user->save();
-       */
-       echo "teste";
+       echo "teste ok";*/
+       $user = User::where('id','1')->first();
+       //dd($user); var_dump do laravel
+       return view ('listUser',['user'=>$user]);
+
    }
 }
