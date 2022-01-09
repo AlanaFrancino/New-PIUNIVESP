@@ -18,3 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/listagem-usuario', [UserController::class,'listUser'])->name('teste.controller');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
