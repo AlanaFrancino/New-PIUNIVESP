@@ -18,15 +18,15 @@ class CreateEmprestimosTable extends Migration
             $table->unsignedBigInteger('livro_id');
             $table->unsignedBigInteger('aluno_id');
             $table->unsignedBigInteger('funcionario_id');
-            $table->timestamps('dt_prevdev');
-            $table->timestamps('dt_dev');
+            $table->dateTime('dt_prevdev');
+            $table->dateTime('dt_dev');
             $table->integer('qnt');
             $table->unsignedBigInteger('user_cadastro');
             $table->string('status');
             $table->timestamps();
             $table->foreign('livro_id')->references('id')->on('livros');
             $table->foreign('aluno_id')->references('id')->on('alunos');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_cadastro')->references('id')->on('users');
         });
     }
 
