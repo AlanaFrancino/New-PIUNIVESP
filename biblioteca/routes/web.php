@@ -22,3 +22,4 @@ Route::get('/listagem-usuario', [UserController::class,'listUser'])->name('teste
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
