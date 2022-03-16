@@ -3208,7 +3208,7 @@
   /*==================================================================
   [ login more ]*/
   .login100-more {
-    width: calc(45% + 187px);
+    width: 60%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -3238,7 +3238,7 @@
     padding: 5px 20px 0px 35px;
   }
   .login100-form-div {
-    width: 560px;
+    width: 40%;
     min-height: 100vh;
     display: block;
     background-color: #f7f7f7;
