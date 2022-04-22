@@ -18,6 +18,23 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/livro/cadastro', function () {
+    return view('livros.cadastro');
+});
+
+Route::get('/alunos/cadastro', function () {
+    return view('alunos.cadastro');
+});
+
+Route::get('/emprestimos/cadastro', function () {
+    return view('emprestimos.cadastro');
+});
+
+Route::get('/usuarios/cadastro', function () {
+    return view('usuarios.cadastro');
+});
+
+
 Route::get('/listagem-usuario', [UserController::class,'listUser'])->name('teste.controller');
 
 Auth::routes();

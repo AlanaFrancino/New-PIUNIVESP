@@ -10,13 +10,14 @@
 					<div class="login100-form-top">
 						<label class="login100-form-title p-b-40" style="padding-right: 50px;">
 							<a href="#" style="padding-right: 30px;">
-								<img class="logo" src="../../images/logo.jpeg" alt=""/>
+								<img class="logo" src="../../images/logo1.jpeg" alt=""/>
 							</a>
 							Projeto Integrador
 						</label>
 					</div>
-					<form class="login100-form validate-form">
+					<form action="{{route('login')}}" method="POST" class="login100-form validate-form">
 						<label class="login100-form-title p-b-42">Login</label>
+						@csrf
 						<div class="wrap-input100 validate-input" data-validate = "Favor digitar um email valido">
 							<input class="input100" type="text" name="email">
 							<span class="focus-input100"></span>
