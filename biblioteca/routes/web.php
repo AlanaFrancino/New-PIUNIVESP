@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -13,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('home');
-});
 
 Route::get('/livro/cadastro', function () {
     return view('livros.cadastro');
@@ -39,5 +37,5 @@ Route::get('/listagem-usuario', [UserController::class,'listUser'])->name('teste
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

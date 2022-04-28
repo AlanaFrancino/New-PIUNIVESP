@@ -116,7 +116,16 @@
                 <a href="#" class="dashboard-nav-item"><i class="fa fa-cogs"></i> Settings </a><a href="#"
                     class="dashboard-nav-item"><i class="fa fa-user"></i> Profile </a>
                 <div class="nav-item-divider"></div>
-                <a href="#" class="dashboard-nav-item"><i class="fa fa-sign-out-alt"></i> Logout </a>
+                <a class="dashboard-nav-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+                
             </nav>
         </div>
         <div class='dashboard-app'>
