@@ -99,7 +99,7 @@
                 <div class='dashboard-nav-dropdown'><a href="#!"
                         class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-users"></i> Users
                     </a>
-                    <div class='dashboard-nav-dropdown-menu'><a href="#" class="dashboard-nav-dropdown-item">All</a><a
+                    <div class='dashboard-nav-dropdown-menu'><a href="{{route('users.index')}}" class="dashboard-nav-dropdown-item">All</a><a
                             href="#" class="dashboard-nav-dropdown-item">Subscribed</a><a href="#"
                             class="dashboard-nav-dropdown-item">Non-subscribed</a><a href="#"
                             class="dashboard-nav-dropdown-item">Banned</a><a href="#"
