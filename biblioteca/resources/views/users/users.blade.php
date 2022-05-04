@@ -5,8 +5,8 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-sm-12 col-md-4">
-                    <div class="text-left">
-                        <a href="{{route('users.create')}}" class="btn btn-lg bg-success" title="Criar Novo Usuario">
+                    <div class="text-left ">
+                        <a href="{{route('users.create')}}" class="btn btn-lg bg-success text-white" title="Criar Novo Usuario">
                             <i class="fa fa-plus-circle"></i> Criar Novo Usuario
                         </a>
                     </div>
@@ -17,7 +17,7 @@
                         <div class="input-group input-group-lg">
                             <input type="text" name="search" class="form-control @error('search') is-invalid @enderror" placeholder="Insira o Nome">
                             <span class="input-group-append">
-                                <button type="submit" class="btn btn-info btn-flat btn-lg">Buscar</button>
+                                <button type="submit" class="btn btn-info btn-flat btn-lg text-white">Buscar</button>
                             </span>
                             @error('search')
                                 <span class="error invalid-feedback">{{$message}}</span>
@@ -53,7 +53,8 @@
                             <div class="card-body pt-1">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="lead"><b>{{$user->nome_completo}}</b></h2>
+                                        <h2 class="lead"><b>{{$user->nome}}</b></h2>
+                                        <p class="text-muted text-sm"><b>Sobrenome: </b>{{str_replace("$user->nome ", "", $user->nome_completo)}}</p>
                                         @if($user->tipo == 'FUNC')
                                             <p class="text-muted text-sm"><b>Cargo: </b>{{ $user->funcionarios()->first()->cargo}}</p>
                                         @else

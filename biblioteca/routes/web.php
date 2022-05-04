@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Scriptotek\GoogleBooks\GoogleBooks;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,10 @@ Route::get('/alunos/cadastro', function () {
 
 Route::get('/emprestimos/cadastro', function () {
     return view('emprestimos.cadastro');
+});
+
+Route::get('/teste', function () {
+    return view('listUser');
 });
 
 Route::get('/listagem-usuario', [UserController::class,'listUser'])->name('teste.controller');
