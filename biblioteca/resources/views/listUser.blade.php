@@ -3,10 +3,10 @@
 @section('content')
 <div class="class='dashboard-content'">
   <div class="col-11 m-5">
-    <h1 class="display-4 align-middle mt-5 text-dark">Busca Livro Via ISBN</h1>
+    <h1 class="display-4 align-middle ml-5 text-dark">Busca Livro Via ISBN</h1>
   </div>
 <div class="row col-12">
-  <div class="col-11 m-5">
+  <div class="col-11 ml-5">
       <div class="card col-12 text-white bg-dark shadow-lg">
           <div class="card-body">
             <h4 class="card-title">Insira o codigo ISBN</h4>
@@ -18,7 +18,7 @@
         </div>
   </div>
 
-  <div class="card col-11 m-5" id="viewerCanvas" style="width: 800px; height: 800px" ></div>
+  <div class="card col-11 ml-5 mt-5" id="viewerCanvas" style="width: 800px; height: 800px" ></div>
 </div>
 </div>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
