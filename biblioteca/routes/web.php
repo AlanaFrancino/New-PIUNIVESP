@@ -28,16 +28,10 @@ Route::get('/emprestimos/cadastro', function () {
     return view('emprestimos.cadastro');
 });
 
-Route::get('/usuarios/cadastro', function () {
-    return view('usuarios.cadastro');
-});
-
-
 Route::get('/listagem-usuario', [UserController::class,'listUser'])->name('teste.controller');
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('flash-message')
     <div class='dashboard-content'>
         <div class='container'>
             <div class='card'>

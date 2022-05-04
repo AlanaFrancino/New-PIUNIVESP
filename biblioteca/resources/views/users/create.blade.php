@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@include('flash-message')
 <div class="d-flex justify-content-center">
     <div class="col-lg-6 pt-4">
         <div class="card card-primary">
@@ -47,7 +48,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password">Senha</label>
                         <input 
                             type="password" 
                             class="form-control form-control-lg @error('password') is-invalid @enderror" 
@@ -64,7 +65,7 @@
                         
                     </div> 
                     <div class="form-group">
-                        <label>Access Level</label>
+                        <label>Tipo Usuario</label>
                         <select 
                             class="form-control form-control-lg @error('password') is-invalid @enderror"
                             name="rule"
@@ -76,13 +77,54 @@
                             <span class="error invalid-feedback">{{$message}}</span>
                         @enderror
                     </div>
-                </div>  
+                    <div id="aluno" class="form-group">
+                        <label for="ra">RA</label>
+                        <input 
+                            type="ra" 
+                            class="form-control form-control-lg @error('ra') is-invalid @enderror" 
+                            id="ra" 
+                            name="ra" 
+                            placeholder="Insira o RA"
+                            value="{{old('ra')}}">
+                        @error('ra')
+                            <span class="error invalid-feedback">{{$message}}</span>
+                        @enderror
+                    </div>  
+                    <div id="func" class="form-group">
+                        <label for="cargo">Cargo</label>
+                        <input 
+                            type="cargo" 
+                            class="form-control form-control-lg @error('cargo') is-invalid @enderror" 
+                            id="cargo" 
+                            name="cargo" 
+                            placeholder="Insira o Cargo"
+                            value="{{old('cargo')}}">
+                        @error('cargo')
+                            <span class="error invalid-feedback">{{$message}}</span>
+                        @enderror
+                    </div>  
+                </div>
+                
                 <div class="card-footer text-right">
-                    <button type="submit" class="btn brn-lager btn-success">Register</button>
+                    <button type="submit" class="btn brn-lager btn-success">Cadastrar</button>
                 </div>
             </form>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#aluno').hide();
+            $('#rule').change(function() {
+                if ($('#rule').val() == 'FUNC') {
+                    $('#func').show();
+                    $('#aluno').hide();
+                } else {
+                    $('#aluno').show();
+                    $('#func').hide();
+                }
+            });
+        });
+    </script>
 </div>
 @stop
 

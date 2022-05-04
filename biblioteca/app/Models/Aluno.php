@@ -22,7 +22,7 @@ class Aluno extends Model
      * Relacinamento de tabelas
      */
     #region Relacionamento Tabelas
-    public function usuario(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
     public function emprestimo()

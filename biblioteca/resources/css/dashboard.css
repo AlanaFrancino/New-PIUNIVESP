@@ -3660,6 +3660,11 @@
     background-color: #03989e8f;
     border-right: 5px solid #03989e8f;
   }
+
+  .badge-success {
+    background-color: #5cb85c;
+  }
+  
  
 
 
