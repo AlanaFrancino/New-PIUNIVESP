@@ -3,7 +3,7 @@
 @section('content')
 <div class="class='dashboard-content'">
   <div class="col-11 m-5">
-    <h1 class="display-4 align-middle ml-5 text-dark">Busca Livro Via ISBN</h1>
+    <h3 class="display-4 align-middle ml-5 text-dark">Busca Livro Via ISBN</h3>
   </div>
 <div class="row col-12">
   <div class="col-11 ml-5">
@@ -35,14 +35,16 @@
     google.books.load({"language":"pt-BR"});
 
     function nextStep(viewer){
-      window.setTimeout(function(){
-        viewer.nextPage()
-        nextStep(viewer);
-      },3000)
+        auto.addEventListener("click", function(event) {
+            window.setTimeout(function(){
+                viewer.nextPage()
+                nextStep(viewer);
+            },5000)   
+        })
     }
 
     function alertNotFound(){
-      alert("Book not found!");
+      alert("Livro Não Encontrado");
     }
 
     function initialiase(){

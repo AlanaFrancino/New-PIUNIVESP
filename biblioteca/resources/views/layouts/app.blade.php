@@ -95,6 +95,15 @@
                 <a href="#" class="dashboard-nav-item active"><i class="fa fa-tachometer-alt"></i> dashboard
                 </a><a href="#" class="dashboard-nav-item"><i class="fa fa-file-upload"></i> Upload </a>
                 <div class='dashboard-nav-dropdown'><a href="#!"
+                    class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-photo-video"></i> Livros
+                </a>
+                <div class='dashboard-nav-dropdown-menu'>
+                    <a href="#" class="dashboard-nav-dropdown-item">All</a>
+                    <a href="{{route('livros.create')}}" class="dashboard-nav-dropdown-item">Cadastro</a>
+                    <a href="{{route('livros.busca')}}" class="dashboard-nav-dropdown-item">Busca via ISBN</a>
+                    <a href="#" class="dashboard-nav-dropdown-item">Video</a></div>
+                </div>
+                <div class='dashboard-nav-dropdown'><a href="#!"
                         class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fa fa-photo-video"></i> Media
                     </a>
                     <div class='dashboard-nav-dropdown-menu'><a href="#" class="dashboard-nav-dropdown-item">All</a><a

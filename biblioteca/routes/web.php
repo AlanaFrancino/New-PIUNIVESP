@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\LivroController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,9 +30,7 @@ Route::get('/emprestimos/cadastro', function () {
     return view('emprestimos.cadastro');
 });
 
-Route::get('/teste', function () {
-    return view('listUser');
-});
+
 
 Route::get('/listagem-usuario', [UserController::class,'listUser'])->name('teste.controller');
 
@@ -51,4 +50,17 @@ Route::middleware('auth')->group(function () {
         Route::put('/{id}/update', 'update')->name('.update');
         Route::delete('/{id}/remove', 'destroy')->name('.delete');
     });
+    
+    Route::prefix('livros')->name('livros')->controller(LivroController::class)->group(function () {
+        Route::get('/', 'index')->name('.index');
+        Route::get('/busca', 'busca')->name('.busca');
+        Route::get('/{parameter}/filter', 'userFilter')->name('.filter');
+        Route::post('/search', 'search')->name('.search');
+        Route::get('/create', 'create')->name('.create');
+        Route::post('/', 'store')->name('.store');
+        Route::get('/{id}/edit', 'edit')->name('.edit');
+        Route::put('/{id}/update', 'update')->name('.update');
+        Route::delete('/{id}/remove', 'destroy')->name('.delete');
+    });
+
 });
