@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<div class="d-flex justify-content-center">  
+@include('flash-message')
+<div class="d-flex justify-content-center">
     <div class="col-lg-6 pt-4">
         <div class="card card-primary">
             <div class="card-header">
@@ -47,7 +48,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password">Senha</label>
                         <input 
                             type="password" 
                             class="form-control form-control-lg @error('password') is-invalid @enderror" 
@@ -64,7 +65,7 @@
                         
                     </div> 
                     <div class="form-group">
-                        <label>Access Level</label>
+                        <label>Tipo Usuario</label>
                         <select 
                             class="form-control form-control-lg @error('password') is-invalid @enderror"
                             name="rule"
@@ -105,11 +106,25 @@
                 </div>
                 
                 <div class="card-footer text-right">
-                    <button type="submit" class="btn brn-lager btn-success">Register</button>
+                    <button type="submit" class="btn brn-lager btn-success">Cadastrar</button>
                 </div>
             </form>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#aluno').hide();
+            $('#rule').change(function() {
+                if ($('#rule').val() == 'FUNC') {
+                    $('#func').show();
+                    $('#aluno').hide();
+                } else {
+                    $('#aluno').show();
+                    $('#func').hide();
+                }
+            });
+        });
+    </script>
 </div>
 @stop
 
@@ -121,21 +136,5 @@
     <script>$('#flash-overlay-modal').modal();</script> 
     <script>
         $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#aluno').hide();
-            $('#func').hide();
-            $('#rule').change(function() {
-                if ($('#rule').val() == 'FUNC') {
-                    $('#func').show();
-                    $('#aluno').hide();
-                } else {
-                    $('#func').show();
-                    $('#aluno').hide();
-                }
-            });
-        });
     </script>
 @stop
