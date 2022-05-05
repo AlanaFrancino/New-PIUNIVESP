@@ -125,10 +125,8 @@
                         Prateleiras
                     </a>
                     <div class='dashboard-nav-dropdown-menu'>
-                        <a href="#" class="dashboard-nav-dropdown-item">Listar</a>
-                        <a href="{{route('livros.create')}}" class="dashboard-nav-dropdown-item">Cadastro</a>
-                        <a href="{{route('livros.busca')}}" class="dashboard-nav-dropdown-item">Busca via ISBN</a>
-                        <a href="#" class="dashboard-nav-dropdown-item">Video</a>
+                        <a href="{{route('prateleiras.index')}}" class="dashboard-nav-dropdown-item">Listar</a>
+                        <a href="{{route('prateleiras.create')}}" class="dashboard-nav-dropdown-item">Cadastro</a>
                     </div>
                 </div>
 

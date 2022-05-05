@@ -108,10 +108,10 @@ class GeneroController extends Controller
     public function destroy($id)
     {
         try {
-            $user = Genero::find($id);
-            $user->ativo = false;
+            $genero = Genero::find($id);
+            $genero->ativo = false;
 
-            $user->update();
+            $genero->update();
 
             return redirect()->route('generos.index')->with('success','Genero Removido Com Sucesso');
         } catch (Exception $e) {

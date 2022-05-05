@@ -61,14 +61,14 @@ class User extends Authenticatable
         return $this->hasMany(Funcionario::class);
     }
 
-    public function emprestimo()
+    public function emprestimos()
     {
         return $this->hasMany(Emprestimo::class);
     }
 
-    public function prateleira()
+    public function prateleiras()
     {
-        return $this->hasMany(Prateleira::class);
+        return $this->hasMany(Prateleira::class,"user_cadastro","id");
     }
     #endregion
 }
