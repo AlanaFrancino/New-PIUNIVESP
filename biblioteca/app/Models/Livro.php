@@ -13,6 +13,7 @@ class Livro extends Model
 
     protected $fillable = [
         'titulo',
+        'autor',
         'genero_id',
         'quantidade',
         'patrimonio',
@@ -31,7 +32,7 @@ class Livro extends Model
     }
 
     public function prateleira(){
-        return $this->belongsTo(Prateleira::class);
+        return $this->belongsTo(Prateleira::class,"prateleira");
     }
     #endregion
 }

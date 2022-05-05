@@ -130,7 +130,7 @@ class PrateleiraController extends Controller
         }
     }
 
-    public function prateleirasFilter($parameter)
+    public function prateleiraFilter($parameter)
     {
         try {
             

@@ -56,7 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('livros')->name('livros')->controller(LivroController::class)->group(function () {
         Route::get('/', 'index')->name('.index');
         Route::get('/busca', 'busca')->name('.busca');
-        Route::get('/{parameter}/filter', 'userFilter')->name('.filter');
+        Route::get('/{parameter}/filter', 'livroFilter')->name('.filter');
         Route::post('/search', 'search')->name('.search');
         Route::get('/create', 'create')->name('.create');
         Route::post('/', 'store')->name('.store');
@@ -76,7 +76,7 @@ Route::middleware('auth')->group(function () {
     });
     Route::prefix('prateleiras')->name('prateleiras')->controller(PrateleiraController::class)->group(function () {
         Route::get('/', 'index')->name('.index');
-        Route::get('/{parameter}/filter', 'prateleirasFilter')->name('.filter');
+        Route::get('/{parameter}/filter', 'prateleiraFilter')->name('.filter');
         Route::post('/search', 'search')->name('.search');
         Route::get('/create', 'create')->name('.create');
         Route::post('/', 'store')->name('.store');

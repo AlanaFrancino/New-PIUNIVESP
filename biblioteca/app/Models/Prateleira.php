@@ -25,7 +25,7 @@ class Prateleira extends Model
     #region Relacionamento Tabelas
     public function livro()
     {
-        return $this->hasMany(Livro::class);
+        return $this->hasMany(Livro::class,"prateleira","id");
     }
 
     public function usuario(){

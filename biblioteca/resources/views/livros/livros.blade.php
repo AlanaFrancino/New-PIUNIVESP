@@ -6,16 +6,16 @@
             <div class="row">
                 <div class="col-sm-12 col-md-4">
                     <div class="text-left ">
-                        <a href="{{route('users.create')}}" class="btn btn-lg bg-success text-white" title="Criar Novo Usuario">
-                            <i class="fa fa-plus-circle"></i> Criar Novo Usuario
+                        <a href="{{route('livros.create')}}" class="btn btn-lg bg-success text-white" title="Criar Novo Usuario">
+                            <i class="fa fa-plus-circle"></i> Criar Novo Livro
                         </a>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4">
-                    <form action="{{route('users.search')}}" method="POST">
+                    <form action="{{route('livros.search')}}" method="POST">
                         @csrf
                         <div class="input-group input-group-lg">
-                            <input type="text" name="search" class="form-control @error('search') is-invalid @enderror" placeholder="Insira o Nome">
+                            <input type="text" name="search" class="form-control @error('search') is-invalid @enderror" placeholder="Insira o Titulo">
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-info btn-flat btn-lg text-white">Buscar</button>
                             </span>
@@ -29,13 +29,11 @@
                     <div class="text-right">               
                         <div class="btn-group">
                             <button type="button" class="btn btn-default btn-lg dropdown-toggle dropdown-icon" id="dropdownMenuOffset" data-bs-toggle="dropdown" aria-expanded="false">
-                                User Filters
+                                Filtro Livros
                             </button>
                             <div class="dropdown-menu" style="">
-                                <a class="dropdown-item" href="{{ route('users.filter', ['parameter' => 'FUNC']) }}">Funcionarios</a>
-                                <a class="dropdown-item" href="{{ route('users.filter', ['parameter' => 'ALUNO']) }}">Alunos</a>
-                                <a class="dropdown-item" href="{{ route('users.filter', ['parameter' => 'desactivated']) }}">Usuarios Desativados</a>
-                                <a class="dropdown-item" href="{{ route('users.filter', ['parameter' => 'activated']) }}">Usuarios Ativo</a>
+                                <a class="dropdown-item" href="{{ route('livros.filter', ['parameter' => 'desactivated']) }}">Livros Desativados</a>
+                                <a class="dropdown-item" href="{{ route('livros.filter', ['parameter' => 'activated']) }}">Livros Ativo</a>
                             </div>
                         </div>
                     </div>
@@ -44,42 +42,35 @@
         </div>
         <div class="card-body pb-0">
             <div class="row">
-                @forelse ($users as $user)
+                @forelse ($livros as $livro)
                     <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
                         <div class="card bg-light d-flex flex-fill">
                             <div class="card-header text-muted border-bottom-0">
-                                @if($user->tipo === 'ALUNO') Aluno @else Funcionario @endif 
+                               {{$livro->titulo}}
                             </div>
                             <div class="card-body pt-1">
                                 <div class="row">
-                                    <div class="col-7">
-                                        <h2 class="lead"><b>{{$user->nome}}</b></h2>
-                                        <p class="text-muted text-sm"><b>Sobrenome: </b>{{str_replace("$user->nome ", "", $user->nome_completo)}}</p>
-                                        @if($user->tipo == 'FUNC')
-                                            <p class="text-muted text-sm"><b>Cargo: </b>{{ $user->funcionarios()->first()->cargo}}</p>
-                                        @else
-                                            <p class="text-muted text-sm"><b>RA: </b>{{ $user->alunos()->first()->ra}}</p>
+                                    <div class="col-12">
+                                        <p class="text-muted text-sm"><b>Autor: </b>{{$livro->autor}}</p>
+                                        @if($livro->patrimonio <> '')
+                                            <p class="text-muted text-sm"><b>Patrimonio: </b>{{ $livro->patrimonio}}</p>
                                         @endif
-                                        <p class="text-muted text-sm"><b>Email: </b>{{ $user->email }}</p>
-                                        <p class="text-muted">@if($user->ativo)<span class="badge badge-success"> Ativo </span> @else<span class="badge badge-danger right"> Desativado </span> @endif </p>
-                                    </div>
-                                    <div class="col-5 text-center">
-                                        <img
-                                            @if(!$user->image)
-                                            src="{{asset('../../images/user_padrao.jpg')}}"
-                                            @else
-                                            src="{{asset('storage/' . $user->image)}}"
-                                            @endif
-                                            alt="user-avatar" class="img-circle img-fluid">
+                                        @if($livro->doacao <> '')
+                                            <p class="text-muted text-sm"><b>Doação: </b>{{ $livro->doacao}}</p>
+                                        @endif
+                                        <p class="text-muted text-sm"><b>Genero: </b>{{ $livro->genero()->first()->descricao }}</p>
+                                        <p class="text-muted">@if($livro->ativo)<span class="badge badge-success"> Ativo </span> @else<span class="badge badge-danger right"> Desativado </span> @endif </p>
+                                        <p class="text-muted text-sm"><b>Localização: </b>{{ $livro->prateleira()->first()->descricao }} </p>
+                                        <p class="text-muted text-sm"><b>Endereço: </b>{{ $livro->prat_local }} </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <div class="text-right">
-                                    <form action="{{route('users.delete', ['id' => $user->id])}}" method="post">
+                                    <form action="{{route('livros.delete', ['id' => $livro->id])}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{route("users.edit", ['id' => $user->id])}}" class="btn bg-teal" title="Edit Category">
+                                        <a href="{{route("livros.edit", ['id' => $livro->id])}}" class="btn bg-teal" title="Edit Category">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <button type="submit" class="btn btn-danger" title="Excluir Usuario"><i class="fa fa-trash"></i></button>
@@ -95,7 +86,7 @@
         </div>
         <div class="card-footer">
             <div class="row d-flex justify-content-center ">
-                {{$users->links()}}
+                {{$livros->links()}}
             </div>
         </div>
     </div>
