@@ -111,7 +111,7 @@
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
                         <i class="fa fa-photo-video"></i> 
-                        Genero
+                        Genêro
                     </a>
                     <div class='dashboard-nav-dropdown-menu'>
                         <a href="{{route('generos.index') }}" class="dashboard-nav-dropdown-item">Listar</a>
@@ -177,7 +177,18 @@
             </nav>
         </div>
         <div class='dashboard-app'>
-            <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fa fa-bars"></i></a>
+            <header class='dashboard-toolbar'>
+                <a href="#!" class="menu-toggle"><i class="fa fa-bars"></i></a>
+                <div vw class="enabled" style="top: 35%; right: 15px;"> 
+                    <div vw-access-button class="active"></div>
+                    <div vw-plugin-wrapper>
+                        <div class="vw-plugin-top-wrapper"></div>
+                    </div>
+                </div>
+                <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+                <script>
+                    new window.VLibras.Widget('https://vlibras.gov.br/app');
+                </script>
             </header>
             <main class="py-0">
                 @yield('content')
