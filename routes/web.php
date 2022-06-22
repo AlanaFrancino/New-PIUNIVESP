@@ -38,30 +38,20 @@ Route::get('/listagem-usuario', [UserController::class,'listUser'])->name('teste
 
 Auth::routes();
 
-Route::prefix('users')->name('users')->controller(UserController::class)->group(function () {
-    Route::get('/', 'index')->name('.index');
-    Route::get('/{parameter}/filter', 'userFilter')->name('.filter');
-    Route::post('/search', 'search')->name('.search');
-    Route::get('/create', 'create')->name('.create');
-    Route::post('/', 'store')->name('.store');
-    Route::get('/{id}/edit', 'edit')->name('.edit');
-    Route::put('/{id}/update', 'update')->name('.update');
-    Route::delete('/{id}/remove', 'destroy')->name('.delete');
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    // Route::prefix('users')->name('users')->controller(UserController::class)->group(function () {
-    //     Route::get('/', 'index')->name('.index');
-    //     Route::get('/{parameter}/filter', 'userFilter')->name('.filter');
-    //     Route::post('/search', 'search')->name('.search');
-    //     Route::get('/create', 'create')->name('.create');
-    //     Route::post('/', 'store')->name('.store');
-    //     Route::get('/{id}/edit', 'edit')->name('.edit');
-    //     Route::put('/{id}/update', 'update')->name('.update');
-    //     Route::delete('/{id}/remove', 'destroy')->name('.delete');
-    // });
+    Route::prefix('users')->name('users')->controller(UserController::class)->group(function () {
+        Route::get('/', 'index')->name('.index');
+        Route::get('/{parameter}/filter', 'userFilter')->name('.filter');
+        Route::post('/search', 'search')->name('.search');
+        Route::get('/create', 'create')->name('.create');
+        Route::post('/', 'store')->name('.store');
+        Route::get('/{id}/edit', 'edit')->name('.edit');
+        Route::put('/{id}/update', 'update')->name('.update');
+        Route::delete('/{id}/remove', 'destroy')->name('.delete');
+    });
     
     Route::prefix('livros')->name('livros')->controller(LivroController::class)->group(function () {
         Route::get('/', 'index')->name('.index');
