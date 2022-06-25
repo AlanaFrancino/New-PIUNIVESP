@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\EmprestimoController;
 use App\Http\Controllers\GeneroController;
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\PrateleiraController;
@@ -75,6 +76,17 @@ Route::middleware('auth')->group(function () {
         Route::delete('/{id}/remove', 'destroy')->name('.delete');
     });
     Route::prefix('prateleiras')->name('prateleiras')->controller(PrateleiraController::class)->group(function () {
+        Route::get('/', 'index')->name('.index');
+        Route::get('/{parameter}/filter', 'prateleiraFilter')->name('.filter');
+        Route::post('/search', 'search')->name('.search');
+        Route::get('/create', 'create')->name('.create');
+        Route::post('/', 'store')->name('.store');
+        Route::get('/{id}/edit', 'edit')->name('.edit');
+        Route::put('/{id}/update', 'update')->name('.update');
+        Route::delete('/{id}/remove', 'destroy')->name('.delete');
+    });
+
+    Route::prefix('emprestimos')->name('emprestimos')->controller(EmprestimoController::class)->group(function () {
         Route::get('/', 'index')->name('.index');
         Route::get('/{parameter}/filter', 'prateleiraFilter')->name('.filter');
         Route::post('/search', 'search')->name('.search');

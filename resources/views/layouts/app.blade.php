@@ -90,56 +90,56 @@
                 </a>
             </header>
             <nav class="dashboard-nav-list">
-                <a href="{{route('home')}}" class="dashboard-nav-item"><i class="fa fa-home"></i>
+                <a href="{{ route('home') }}" class="dashboard-nav-item"><i class="fa fa-home"></i>
                     Home </a>
                 <a href="#" class="dashboard-nav-item active"><i class="fa fa-tachometer-alt"></i> dashboard
                 </a><a href="#" class="dashboard-nav-item"><i class="fa fa-file-upload"></i> Upload </a>
 
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                        <i class="fa fa-photo-video"></i> 
+                        <i class="fa fa-photo-video"></i>
                         Livros
                     </a>
                     <div class='dashboard-nav-dropdown-menu'>
-                        <a href="{{route('livros.index')}}" class="dashboard-nav-dropdown-item">Listar</a>
-                        <a href="{{route('livros.create')}}" class="dashboard-nav-dropdown-item">Cadastro</a>
-                        <a href="{{route('livros.busca')}}" class="dashboard-nav-dropdown-item">Busca via ISBN</a>
+                        <a href="{{ route('livros.index') }}" class="dashboard-nav-dropdown-item">Listar</a>
+                        <a href="{{ route('livros.create') }}" class="dashboard-nav-dropdown-item">Cadastro</a>
+                        <a href="{{ route('livros.busca') }}" class="dashboard-nav-dropdown-item">Busca via ISBN</a>
                         <a href="#" class="dashboard-nav-dropdown-item">Video</a>
                     </div>
                 </div>
 
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                        <i class="fa fa-photo-video"></i> 
+                        <i class="fa fa-photo-video"></i>
                         Genêro
                     </a>
                     <div class='dashboard-nav-dropdown-menu'>
-                        <a href="{{route('generos.index') }}" class="dashboard-nav-dropdown-item">Listar</a>
-                        <a href="{{route('generos.create')}}" class="dashboard-nav-dropdown-item">Cadastro</a>
+                        <a href="{{ route('generos.index') }}" class="dashboard-nav-dropdown-item">Listar</a>
+                        <a href="{{ route('generos.create') }}" class="dashboard-nav-dropdown-item">Cadastro</a>
                     </div>
                 </div>
 
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                        <i class="fa fa-photo-video"></i> 
+                        <i class="fa fa-photo-video"></i>
                         Prateleiras
                     </a>
                     <div class='dashboard-nav-dropdown-menu'>
-                        <a href="{{route('prateleiras.index')}}" class="dashboard-nav-dropdown-item">Listar</a>
-                        <a href="{{route('prateleiras.create')}}" class="dashboard-nav-dropdown-item">Cadastro</a>
+                        <a href="{{ route('prateleiras.index') }}" class="dashboard-nav-dropdown-item">Listar</a>
+                        <a href="{{ route('prateleiras.create') }}" class="dashboard-nav-dropdown-item">Cadastro</a>
                     </div>
                 </div>
 
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
-                        <i class="fa fa-photo-video"></i> 
-                        Media
+                        <i class="fa fa-photo-video"></i>
+                        Emprestimos
                     </a>
                     <div class='dashboard-nav-dropdown-menu'>
-                        <a href="#" class="dashboard-nav-dropdown-item">All</a>
-                        <a href="#" class="dashboard-nav-dropdown-item">Recent</a>
-                        <a href="#" class="dashboard-nav-dropdown-item">Images</a>
-                        <a href="#" class="dashboard-nav-dropdown-item">Video</a>
+                        <a href="{{ route('emprestimos.index') }}" class="dashboard-nav-dropdown-item">Listar</a>
+                        <a href="{{ route('emprestimos.create') }}" class="dashboard-nav-dropdown-item">Novo
+                            Emprestimo</a>
+                        <a href="{{ route('emprestimos.store') }}" class="dashboard-nav-dropdown-item">Devolução</a>
                     </div>
                 </div>
 
@@ -152,34 +152,24 @@
                     </div>
                 </div>
 
-                    <div class='dashboard-nav-dropdown'><a href="#!"
-                            class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-                                class="fa fa-money-check-alt"></i>
-                            Payments </a>
-                        <div class='dashboard-nav-dropdown-menu'><a href="#"
-                                class="dashboard-nav-dropdown-item">All</a><a href="#"
-                                class="dashboard-nav-dropdown-item">Recent</a><a href="#"
-                                class="dashboard-nav-dropdown-item"> Projections</a>
-                        </div>
-                    </div>
-                    <a href="#" class="dashboard-nav-item"><i class="fa fa-cogs"></i> Settings </a><a href="#"
-                        class="dashboard-nav-item"><i class="fa fa-user"></i> Profile </a>
-                    <div class="nav-item-divider"></div>
-                    <a class="dashboard-nav-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
+                <div class="nav-item-divider"></div>
+                <a class="dashboard-nav-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
 
             </nav>
         </div>
         <div class='dashboard-app'>
             <header class='dashboard-toolbar'>
                 <a href="#!" class="menu-toggle"><i class="fa fa-bars"></i></a>
-                <div vw class="enabled" style="top: 35%; right: 15px;"> 
+                <div vw class="enabled" style="top: 35%; right: 15px;">
                     <div vw-access-button class="active"></div>
                     <div vw-plugin-wrapper>
                         <div class="vw-plugin-top-wrapper"></div>
