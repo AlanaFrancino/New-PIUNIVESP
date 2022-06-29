@@ -54,7 +54,7 @@
                             </tr>
 
                         @empty
-                            <p>Usuario não encontrado. @isset($parameter)
+                            <p>Emprestimos não encontrado. @isset($parameter)
                                     na busca pelo filtro: {{ $parameter }}
                                 @endisset
                             </p>
