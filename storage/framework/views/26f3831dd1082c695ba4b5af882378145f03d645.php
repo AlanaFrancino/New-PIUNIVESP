@@ -65,9 +65,8 @@ unset($__errorArgs, $__bag); ?>
                         <div class="form-group">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="data_retira">Data Retirada</label>
-                                    <input type="date" class="form-control" name="data_retira" id="data_retira">
-                                    <span class="focus-input100"></span>
+                                    <label for="Qtd">Quantidade Retirada</label>
+                                    <input type="text" class="form-control" name="Qtd" id="Qtd">
                                 </div>
 
                                 <div class="form-group col-md-6">
@@ -78,12 +77,6 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            
-                            <label for="Qtd">Quantidade Retirada</label>
-                            <input type="text" class="form-control" name="Qtd" id="Qtd">
-                            
-                        </div>
 
                     </div>
                     <script type="text/javascript">

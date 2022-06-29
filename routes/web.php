@@ -92,6 +92,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/search', 'search')->name('.search');
         Route::get('/create', 'create')->name('.create');
         Route::post('/', 'store')->name('.store');
+        Route::get('/autocomplete', 'autocomplete')->name('.autocomplete');
+        Route::get('/autocompletelivros', 'autocompletelivros')->name('.autocompletelivros');
         Route::get('/{id}/update', 'update')->name('.update');
     });
 

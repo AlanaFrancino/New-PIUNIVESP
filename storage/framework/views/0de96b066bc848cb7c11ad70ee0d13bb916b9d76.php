@@ -66,7 +66,8 @@
     <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->

@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::nhq0gNq2bYcDIEDH',
+            '_route' => 'generated::cdYedXZV1dOEssqg',
           ),
           1 => NULL,
           2 => 
@@ -44,7 +44,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::xrmIFZAHFIG2WM6X',
+            '_route' => 'generated::IFUnebj8oNWka4Ki',
           ),
           1 => NULL,
           2 => 
@@ -64,7 +64,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::xMoXtH593tCfrnth',
+            '_route' => 'generated::Ta27nMovAr06COnj',
           ),
           1 => NULL,
           2 => 
@@ -84,7 +84,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::EcoGg54kGTAaUrz1',
+            '_route' => 'generated::PvpuRXa2m2LZiWz1',
           ),
           1 => NULL,
           2 => 
@@ -104,7 +104,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::lsRqD8GapKh0c0bR',
+            '_route' => 'generated::ypCGZpjehb4W7DLP',
           ),
           1 => NULL,
           2 => 
@@ -161,7 +161,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::bkjv7aOvaDx9pDUf',
+            '_route' => 'generated::CiIGhxSK7yVS5TFZ',
           ),
           1 => NULL,
           2 => 
@@ -216,7 +216,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::QSuGtMIkBogGR2al',
+            '_route' => 'generated::iqx3hiuATJo27Pbt',
           ),
           1 => NULL,
           2 => 
@@ -307,7 +307,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::amiQcd9UlmUYeE8l',
+            '_route' => 'generated::CYi1LHoS0YHOC60i',
           ),
           1 => NULL,
           2 => 
@@ -722,6 +722,46 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'emprestimos.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/emprestimos/autocomplete' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'emprestimos.autocomplete',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/emprestimos/autocompletelivros' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'emprestimos.autocompletelivros',
           ),
           1 => NULL,
           2 => 
@@ -1186,7 +1226,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::nhq0gNq2bYcDIEDH' => 
+    'generated::cdYedXZV1dOEssqg' => 
     array (
       'methods' => 
       array (
@@ -1207,7 +1247,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'as' => 'generated::nhq0gNq2bYcDIEDH',
+        'as' => 'generated::cdYedXZV1dOEssqg',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1223,7 +1263,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::xrmIFZAHFIG2WM6X' => 
+    'generated::IFUnebj8oNWka4Ki' => 
     array (
       'methods' => 
       array (
@@ -1246,7 +1286,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::xrmIFZAHFIG2WM6X',
+        'as' => 'generated::IFUnebj8oNWka4Ki',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1262,7 +1302,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::xMoXtH593tCfrnth' => 
+    'generated::Ta27nMovAr06COnj' => 
     array (
       'methods' => 
       array (
@@ -1284,7 +1324,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::xMoXtH593tCfrnth',
+        'as' => 'generated::Ta27nMovAr06COnj',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1300,7 +1340,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::EcoGg54kGTAaUrz1' => 
+    'generated::PvpuRXa2m2LZiWz1' => 
     array (
       'methods' => 
       array (
@@ -1322,7 +1362,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::EcoGg54kGTAaUrz1',
+        'as' => 'generated::PvpuRXa2m2LZiWz1',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1338,7 +1378,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::lsRqD8GapKh0c0bR' => 
+    'generated::ypCGZpjehb4W7DLP' => 
     array (
       'methods' => 
       array (
@@ -1360,7 +1400,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::lsRqD8GapKh0c0bR',
+        'as' => 'generated::ypCGZpjehb4W7DLP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1450,7 +1490,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::bkjv7aOvaDx9pDUf' => 
+    'generated::CiIGhxSK7yVS5TFZ' => 
     array (
       'methods' => 
       array (
@@ -1470,7 +1510,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::bkjv7aOvaDx9pDUf',
+        'as' => 'generated::CiIGhxSK7yVS5TFZ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1559,7 +1599,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::QSuGtMIkBogGR2al' => 
+    'generated::iqx3hiuATJo27Pbt' => 
     array (
       'methods' => 
       array (
@@ -1579,7 +1619,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::QSuGtMIkBogGR2al',
+        'as' => 'generated::iqx3hiuATJo27Pbt',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1778,7 +1818,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::amiQcd9UlmUYeE8l' => 
+    'generated::CYi1LHoS0YHOC60i' => 
     array (
       'methods' => 
       array (
@@ -1798,7 +1838,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::amiQcd9UlmUYeE8l',
+        'as' => 'generated::CYi1LHoS0YHOC60i',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3258,6 +3298,82 @@ app('router')->setCompiledRoutes(
         'uses' => 'App\\Http\\Controllers\\EmprestimoController@store',
         'controller' => 'App\\Http\\Controllers\\EmprestimoController@store',
         'as' => 'emprestimos.store',
+        'namespace' => NULL,
+        'prefix' => '/emprestimos',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'emprestimos.autocomplete' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'emprestimos/autocomplete',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\EmprestimoController@autocomplete',
+        'controller' => 'App\\Http\\Controllers\\EmprestimoController@autocomplete',
+        'as' => 'emprestimos.autocomplete',
+        'namespace' => NULL,
+        'prefix' => '/emprestimos',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'emprestimos.autocompletelivros' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'emprestimos/autocompletelivros',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\EmprestimoController@autocompletelivros',
+        'controller' => 'App\\Http\\Controllers\\EmprestimoController@autocompletelivros',
+        'as' => 'emprestimos.autocompletelivros',
         'namespace' => NULL,
         'prefix' => '/emprestimos',
         'where' => 
