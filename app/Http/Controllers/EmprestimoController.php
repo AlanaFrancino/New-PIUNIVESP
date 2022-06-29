@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SearchRequest;
 use App\Models\Aluno;
+use App\Models\Emprestimo;
 use App\Models\Funcionario;
+use App\Models\Livro;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -18,9 +20,9 @@ class EmprestimoController extends Controller
      */
     public function index()
     {
-        $users = User::where('id', '!=', auth()->user()->id)->paginate(9);
+        $emprestimos = Emprestimo::orderBy('id', 'DESC')->paginate(9);
         // dd($users);
-        return view('emprestimos.emprestimos', compact('users'));
+        return view('emprestimos.emprestimos', compact('emprestimos'));
     }
 
     /**
@@ -30,7 +32,7 @@ class EmprestimoController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('emprestimos.cadastro');
     }
 
     /**
@@ -41,41 +43,36 @@ class EmprestimoController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
+        $user = User::find($request->get('iduser'));
+
         $data = [
-            'nome' => $request->get('nome'),
-            'nome_completo' => $request->get('nome') . ' ' . $request->get('sobrenome'),
-            'email' => $request->get('email'),
-            'tipo' => $request->get('rule'),
+            'livro_id' => $request->get('idlivro'),
+            'qnt' => $request->get('Qtd'),
+            'status' => "Emprestado",
+            'user_cadastro' => auth()->user()->id
         ];
 
-        if ($request->has('password') && $request->get('password')) {
-            $data['password'] = bcrypt($request->get('password'));
+        if ($request->has('data_dev') && $request->get('data_dev')) {
+            $data['dt_prevdev'] = date('Y-m-d H:i:s', strtotime($request->get('data_dev')));
         }
 
-        $data['ativo'] = true;
+        if ($user['tipo'] == 'FUNC') {
+            $funcionario = Funcionario::where('user_id', '=', $request->get('iduser'))->first();
+            $data['funcionario_id'] = $funcionario->id;
+        }
+        else{
+            $aluno = Aluno::where('user_id', '=', $request->get('iduser'))->first();
+            $data['aluno_id'] = $aluno->id;
+        }
 
 
         try {
-
-            if ($data['tipo'] == 'FUNC') {
-
-                $datafunc = [
-                    'nome'      => $request->get('nome') . ' ' . $request->get('sobrenome'),
-                    'cargo'     => $request->get('cargo'),
-                    'email'     => $request->get('email'),
-                ];
-                $user = User::create($data)->funcionarios()->create($datafunc);
-            } else {
-                $datauser = [
-                    'nome'      => $request->get('nome') . ' ' . $request->get('sobrenome'),
-                    'ra'        => $request->get('ra'),
-                    'email'     => $request->get('email'),
-                ];
-                $user = User::create($data)->alunos()->create($datauser);
-            }
-            return redirect()->route('users.index')->with('success', 'Usuario Criado Com Sucesso');
+            Emprestimo::create($data);
+            
+            return redirect()->route('emprestimos.index')->with('success', 'Emprestimo Relizado com sucesso');
         } catch (Exception $e) {
-            return redirect()->route('users.create')->with('error', 'Não foi possivel criar o usuario tente novamente');
+            return redirect()->route('emprestimos.create')->with('error', 'Não foi possivel registrar o novo emprestimo tente novamente');
         }
     }
 
@@ -90,18 +87,6 @@ class EmprestimoController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $user = User::find($id);
-        // dd($user);
-        return view('users.edit', compact('user'));
-    }
 
     /**
      * Update the specified resource in storage.
@@ -112,62 +97,18 @@ class EmprestimoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $emprestimo = Emprestimo::find($id);
         $data = [
-            'nome' => $request->get('nome'),
-            'nome_completo' => $request->get('nome') . ' ' . $request->get('sobrenome'),
-            'email' => $request->get('email'),
+            'dt_dev' => date('Y-m-d H:i:s'),
+            'status' => 'Delvolvido'
         ];
-
-        if ($request->has('password') && $request->get('password')) {
-            $data['password'] = bcrypt($request->get('password'));
-        }
-
-        $data['ativo'] = true;
-
-        $user = User::find($id);
         try {
 
-            if ($user->tipo == 'FUNC') {
-
-                $datafunc = [
-                    'nome'      => $request->get('nome') . ' ' . $request->get('sobrenome'),
-                    'cargo'     => $request->get('cargo'),
-                    'email'     => $request->get('email'),
-                ];
-                $user->update($data);
-                $user->funcionarios()->update($datafunc);
-            } else {
-                $datauser = [
-                    'nome'      => $request->get('nome') . ' ' . $request->get('sobrenome'),
-                    'ra'        => $request->get('ra'),
-                    'email'     => $request->get('email'),
-                ];
-                $user->update($data);
-                $user->alunos()->update($datauser);
-            }
-            return redirect()->route('users.index')->with('success', 'Usuario Alterado Com Sucesso');
+            $emprestimo->update($data);
+            
+            return redirect()->route('emprestimos.index')->with('success', 'Emprestimo devolvido com sucesso');
         } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Não foi possivel alterar o usuario tente novamente');
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        try {
-            $user = User::find($id);
-            $user->ativo = false;
-
-            $user->update();
-
-            return redirect()->route('users.index')->with('success', 'Usuario Removido Com Sucesso');
-        } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Usuario Não pode ser removido no momento');
+            return redirect()->back()->with('error', 'Não foi possivel devolver o emprestimo tente novamente');
         }
     }
 
@@ -211,5 +152,23 @@ class EmprestimoController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Usuario Não Encontrado');
         }
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $data = User::select("nome as value", "id")
+                    ->where('nome', 'LIKE', '%'. $request->get('search'). '%')
+                    ->get();
+    
+        return response()->json($data);
+    }
+
+    public function autocompletelivros(Request $request)
+    {
+        $data = Livro::select("titulo as value", "id")
+                    ->where('titulo', 'LIKE', '%'. $request->get('search2'). '%')
+                    ->get();
+    
+        return response()->json($data);
     }
 }

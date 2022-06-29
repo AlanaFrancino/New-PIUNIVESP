@@ -18,6 +18,7 @@ class Emprestimo extends Model
         'dt_prevdev',
         'dt_dev',
         'qnt',
+        'status',
         'user_cadastro'
     ];
 
@@ -26,7 +27,7 @@ class Emprestimo extends Model
      */
     #region Relacionamento Tabelas
     public function usuario(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,"user_cadastro");
     }
     public function aluno(){
         return $this->belongsTo(Aluno::class);
@@ -35,7 +36,7 @@ class Emprestimo extends Model
         return $this->belongsTo(Funcionario::class);
     }
     public function livro(){
-        return $this->belongsTo(Livro::class);
+        return $this->belongsTo(Livro::class,"livro_id");
     }
     #endregion
 }

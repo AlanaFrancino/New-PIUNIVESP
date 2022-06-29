@@ -92,9 +92,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/search', 'search')->name('.search');
         Route::get('/create', 'create')->name('.create');
         Route::post('/', 'store')->name('.store');
-        Route::get('/{id}/edit', 'edit')->name('.edit');
-        Route::put('/{id}/update', 'update')->name('.update');
-        Route::delete('/{id}/remove', 'destroy')->name('.delete');
+        Route::get('/{id}/update', 'update')->name('.update');
     });
 
 });

@@ -22,6 +22,7 @@
     },
     "dependencies": {
         "font-awesome": "^4.7.0",
-        "jquery": "^3.6.0"
+        "jquery": "^3.6.0",
+        "jquery-typeahead": "^2.11.1"
     }
 }
