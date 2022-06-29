@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 @empty
-                    <p>Usuario não encontrado. @isset($parameter) na busca pelo filtro: {{ $parameter }} @endisset</p>
+                    <p>Generos não encontrado. @isset($parameter) na busca pelo filtro: {{ $parameter }} @endisset</p>
                 @endforelse
             </div>
         </div>
