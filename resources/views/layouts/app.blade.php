@@ -96,8 +96,7 @@
             <nav class="dashboard-nav-list">
                 <a href="{{ route('home') }}" class="dashboard-nav-item"><i class="fa fa-home"></i>
                     Home </a>
-                <a href="#" class="dashboard-nav-item active"><i class="fa fa-tachometer-alt"></i> dashboard
-                </a><a href="#" class="dashboard-nav-item"><i class="fa fa-file-upload"></i> Upload </a>
+                <a href="{{ route('videos.index') }}" class="dashboard-nav-item"><i class="fa fa-file-upload"></i> Upload </a>
 
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
@@ -108,7 +107,6 @@
                         <a href="{{ route('livros.index') }}" class="dashboard-nav-dropdown-item">Listar</a>
                         <a href="{{ route('livros.create') }}" class="dashboard-nav-dropdown-item">Cadastro</a>
                         <a href="{{ route('livros.busca') }}" class="dashboard-nav-dropdown-item">Busca via ISBN</a>
-                        <a href="#" class="dashboard-nav-dropdown-item">Video</a>
                     </div>
                 </div>
 

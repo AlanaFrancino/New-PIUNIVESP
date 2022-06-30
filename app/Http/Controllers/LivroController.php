@@ -39,8 +39,8 @@ class LivroController extends Controller
      */
     public function create()
     {
-        $generos = Genero::get();
-        $prateleiras = Prateleira::get();
+        $generos = Genero::where('ativo', '=', 'true')->get();
+        $prateleiras = Prateleira::where('ativo', '=', 'true')->get();
         return view('livros.create', compact('generos','prateleiras'));
     }
 
@@ -96,8 +96,8 @@ class LivroController extends Controller
      */
     public function edit($id)
     {
-        $generos = Genero::get();
-        $prateleiras = Prateleira::get();
+        $generos = Genero::where('ativo', '=', 'true')->get();
+        $prateleiras = Prateleira::where('ativo', '=', 'true')->get();
         $livro = Livro::find($id);
         return view('livros.edit', compact('generos','prateleiras','livro'));
     }
@@ -128,7 +128,7 @@ class LivroController extends Controller
             
             return redirect()->route('livros.index')->with('success','Livro Alterado Com Sucesso');
         } catch (Exception $e) {
-            return redirect()->route('livros.create')->with('error','Não foi possivel alterat o Livro tente novamente');
+            return redirect()->route('livros.create')->with('error','Não foi possivel alterar o Livro tente novamente');
         }
     }
 

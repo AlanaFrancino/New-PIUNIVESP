@@ -6,6 +6,7 @@ use App\Http\Controllers\GeneroController;
 use App\Http\Controllers\LivroController;
 use App\Http\Controllers\PrateleiraController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Scriptotek\GoogleBooks\GoogleBooks;
@@ -95,6 +96,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/autocomplete', 'autocomplete')->name('.autocomplete');
         Route::get('/autocompletelivros', 'autocompletelivros')->name('.autocompletelivros');
         Route::get('/{id}/update', 'update')->name('.update');
+    });
+
+    Route::prefix('videos')->name('videos')->controller(VideoController::class)->group(function () {
+        Route::get('/', 'index')->name('.index');
     });
 
 });

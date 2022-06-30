@@ -43,8 +43,15 @@ class EmprestimoController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
+        if (!$request->has('iduser') && !$request->get('iduser')) {
+            return redirect()->route('emprestimos.create')->with('alert', 'favor escolher um usuario para registro');
+        }
+
         $user = User::find($request->get('iduser'));
+
+        if (!$request->has('idlivro') && !$request->get('idlivro')) {
+            return redirect()->route('emprestimos.create')->with('alert', 'favor escolher um livro para registro');
+        }
 
         $data = [
             'livro_id' => $request->get('idlivro'),
@@ -158,6 +165,7 @@ class EmprestimoController extends Controller
     {
         $data = User::select("nome as value", "id")
                     ->where('nome', 'LIKE', '%'. $request->get('search'). '%')
+                    ->where('ativo', '=', 'true')
                     ->get();
     
         return response()->json($data);
@@ -167,6 +175,7 @@ class EmprestimoController extends Controller
     {
         $data = Livro::select("titulo as value", "id")
                     ->where('titulo', 'LIKE', '%'. $request->get('search2'). '%')
+                    ->where('ativo', '=', 'true')
                     ->get();
     
         return response()->json($data);
