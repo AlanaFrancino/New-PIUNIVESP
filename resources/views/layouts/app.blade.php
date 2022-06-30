@@ -96,7 +96,7 @@
             <nav class="dashboard-nav-list">
                 <a href="{{ route('home') }}" class="dashboard-nav-item"><i class="fa fa-home"></i>
                     Home </a>
-                <a href="{{ route('videos.index') }}" class="dashboard-nav-item"><i class="fa fa-file-upload"></i> Upload </a>
+                <a href="{{ route('videos.index') }}" class="dashboard-nav-item"><i class="fa fa-file-upload"></i> Videos Tutorial </a>
 
                 <div class='dashboard-nav-dropdown'>
                     <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle">
