@@ -2,11 +2,11 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-more" style="background-image: url('../../images/bg-01.png');">
+
+			<div class="row" style="flex-direction: row-reverse; ">
+				<div class="col-lg-6 col-md-4 col-sm-0 login100-more" style="background-image: url('../../images/bg-01.png');">
 				</div>
-				<div class="login100-form-div">
+				<div class="col-lg-6 col-md-8 col-sm-12 login100-form-div" style="padding-right:0 !important; padding-left:0 !important; ">
 					<div class="login100-form-top">
 						<label class="login100-form-title p-b-40" style="padding-right: 50px;">
 							
@@ -106,7 +106,7 @@ unset($__errorArgs, $__bag); ?>
                     </form>
 				</div>
 			</div>
-		</div>
+
 	</div>
 <?php $__env->stopSection(); ?>
 
