@@ -52,7 +52,19 @@ class UserController extends Controller
             $data['password'] = bcrypt($request->get('password'));
         }
 
+        $tag = $request->get('tag');
+        
+        if(!empty($tag)){
+            $buscatag = User::where('tag', $tag )->count();
+       
+            if($buscatag > 0){
+                return redirect()->route('users.create')->with('warning','Tag ja cadastrada em outro ususario');
+            }   
+        }
+        
+
         $data['ativo'] = true;
+        $data['tag'] = $tag;
         
         
         try {
@@ -119,11 +131,24 @@ class UserController extends Controller
             'email' => $request->get('email'),
         ];
 
+        
+
         if ($request->has('password') && $request->get('password')) {
             $data['password'] = bcrypt($request->get('password'));
         }
+        $tag = $request->get('tag');
+        
+        if(!empty($tag)){
+            $buscatag = User::where('tag', $tag )->where('id','!=', $id)->count();
+        
+            if($buscatag > 0){
+                return redirect()->back()->with('warning','Tag ja cadastrada em outro ususario');
+            }   
+        }
+        
 
         $data['ativo'] = true;
+        $data['tag'] = $tag;
         
         $user = User::find($id);
         try {

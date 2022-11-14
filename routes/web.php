@@ -21,6 +21,9 @@ use Scriptotek\GoogleBooks\GoogleBooks;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/UIDContainer', function () {
+    return view('UIDContainer');
+})->name('UIDContainer');
 
 Route::get('/livro/cadastro', function () {
     return view('livros.cadastro');
@@ -94,6 +97,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/create', 'create')->name('.create');
         Route::post('/', 'store')->name('.store');
         Route::get('/autocomplete', 'autocomplete')->name('.autocomplete');
+        Route::get('/autocompletetag', 'autocompletetag')->name('.autocompletetag');
         Route::get('/autocompletelivros', 'autocompletelivros')->name('.autocompletelivros');
         Route::get('/{id}/update', 'update')->name('.update');
     });

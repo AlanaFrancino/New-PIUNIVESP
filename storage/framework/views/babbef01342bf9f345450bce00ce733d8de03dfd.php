@@ -1,6 +1,19 @@
 
 <?php $__env->startSection('content'); ?>
 <?php echo $__env->make('flash-message', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php
+$Write="<?php $" . "UIDresult=''; " . "echo $" . "UIDresult;" . " ?>";
+file_put_contents(resource_path('views/UIDContainer.blade.php'),$Write) 
+?>
+<script>
+    $(document).ready(function(){
+         $("#getUID").load("<?php echo e(route('UIDContainer')); ?>");
+        setInterval(function() {
+            $("#getUID").load("<?php echo e(route('UIDContainer')); ?>");	
+        }, 500);
+    });
+</script>
+<p id="getUID" hidden></p>
 <div class="d-flex justify-content-center">
     <div class="col-lg-6 pt-4">
         <div class="card card-primary">
@@ -52,6 +65,32 @@ unset($__errorArgs, $__bag); ?>"
                             placeholder="Insira o sobrenome"
                             value="<?php echo e(old('sobrenome')); ?>">
                         <?php $__errorArgs = ['sobrenome'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <span class="error invalid-feedback"><?php echo e($message); ?></span>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="tag">Tag</label>
+                        <input type="tag" 
+                            class="form-control form-control-lg <?php $__errorArgs = ['tag'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" 
+                            id="tag" 
+                            name="tag" 
+                            placeholder="Insira a tag"
+                            value="<?php echo e(old('tag')); ?>">
+                        <?php $__errorArgs = ['tag'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -222,6 +261,59 @@ unset($__errorArgs, $__bag); ?>
                 }
             });
         });
+    </script>
+    <script>
+        var myVar = setInterval(myTimer, 1000);
+        var myVar1 = setInterval(myTimer1, 1000);
+        var oldID="";
+        clearInterval(myVar1);
+    
+        function myTimer() {
+            var getID=document.getElementById("getUID").innerHTML;
+            oldID=getID;
+            if(getID!="") {
+                document.querySelector("#tag").value = getID;
+                // myVar1 = setInterval(myTimer1, 500);
+                showUser(getID);
+                clearInterval(myVar);
+            }
+        }
+        
+        function myTimer1() {
+            var getID=document.getElementById("getUID").innerHTML;
+            if(oldID!=getID) {
+                document.querySelector("#tag").value = getID;
+                // myVar = setInterval(myTimer, 500);
+                clearInterval(myVar1);
+            }
+        }
+        
+        function showUser(str) {
+            if (str == "") {
+                document.getElementById("show_user_data").innerHTML = "";
+                return;
+            } else {
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("show_user_data").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","read tag user data.php?id="+str,true);
+                xmlhttp.send();
+            }
+        }
+        
+        var blink = document.getElementById('blink');
+        // setInterval(function() {
+        //     blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+        // }, 750); 
     </script>
 </div>
 <?php $__env->stopSection(); ?>

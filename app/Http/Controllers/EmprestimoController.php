@@ -163,11 +163,21 @@ class EmprestimoController extends Controller
 
     public function autocomplete(Request $request)
     {
-        $data = User::select("nome as value", "id")
+        $data = User::select("nome as value", "id","tag")
                     ->where('nome', 'LIKE', '%'. $request->get('search'). '%')
-                    ->where('ativo', '=', 'true')
+                    ->where('ativo', 1)
                     ->get();
-    
+                    // ->where('ativo', '=', 'true')
+        return response()->json($data);
+    }
+
+    public function autocompletetag(Request $request)
+    {
+        $data = User::select("nome as value", "id","tag")
+                    ->where('tag', $request->get('searchtag'))
+                    ->where('ativo', 1)
+                    ->get();
+                    // ->where('ativo', '=', 'true')
         return response()->json($data);
     }
 
@@ -175,9 +185,9 @@ class EmprestimoController extends Controller
     {
         $data = Livro::select("titulo as value", "id")
                     ->where('titulo', 'LIKE', '%'. $request->get('search2'). '%')
-                    ->where('ativo', '=', 'true')
+                    ->where('ativo', 1)
                     ->get();
-    
+                    // ->where('ativo', '=', 'true')
         return response()->json($data);
     }
 }
