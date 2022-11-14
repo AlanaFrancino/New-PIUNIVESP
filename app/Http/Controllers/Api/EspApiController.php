@@ -10,7 +10,6 @@ class EspApiController extends Controller
     public function search(Request $request)
     {
         $UIDresult = $request->UIDresult;
-        dd($UIDresult);
         $Write="<?php $" . "UIDresult='" . $UIDresult . "'; " . "echo $" . "UIDresult;" . " ?>";
         return view('api', compact('Write'));
     }
