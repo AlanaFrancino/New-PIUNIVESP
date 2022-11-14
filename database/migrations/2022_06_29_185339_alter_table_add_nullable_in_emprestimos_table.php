@@ -14,9 +14,9 @@ class AlterTableAddNullableInEmprestimosTable extends Migration
     public function up()
     {
         Schema::table('emprestimos', function (Blueprint $table) {
-            $table->foreign('livro_id')->references('id')->nullable()->on('livros');
-            $table->foreign('aluno_id')->references('id')->nullable()->on('alunos');
-            $table->dateTime('dt_dev')->nullable();
+            // $table->foreign('livro_id')->references('id')->nullable()->on('livros');
+            // $table->foreign('aluno_id')->references('id')->nullable()->on('alunos');
+            // $table->dateTime('dt_dev')->nullable();
         });
     }
 
@@ -28,9 +28,9 @@ class AlterTableAddNullableInEmprestimosTable extends Migration
     public function down()
     {
         Schema::table('emprestimos', function (Blueprint $table) {
-            $table->foreign('livro_id')->references('id')->on('livros');
-            $table->foreign('aluno_id')->references('id')->on('alunos');
-            $table->dateTime('dt_dev');
+            // $table->dropForeign('emprestimos_livro_id_foreign');
+            // $table->dropForeign('emprestimos_aluno_id_foreign');
+            // $table->dateTime('dt_dev');
         });
     }
 }
