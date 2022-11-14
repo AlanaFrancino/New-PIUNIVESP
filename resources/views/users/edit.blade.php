@@ -147,7 +147,6 @@ file_put_contents(resource_path('views/UIDContainer.blade.php'),$Write)
         if(getID!="") {
             document.querySelector("#tag").value = getID;
             // myVar1 = setInterval(myTimer1, 500);
-            showUser(getID);
             clearInterval(myVar);
         }
     }
@@ -161,27 +160,6 @@ file_put_contents(resource_path('views/UIDContainer.blade.php'),$Write)
         }
     }
     
-    function showUser(str) {
-        if (str == "") {
-            document.getElementById("show_user_data").innerHTML = "";
-            return;
-        } else {
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {
-                // code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("show_user_data").innerHTML = this.responseText;
-                }
-            };
-            xmlhttp.open("GET","read tag user data.php?id="+str,true);
-            xmlhttp.send();
-        }
-    }
     
     var blink = document.getElementById('blink');
     // setInterval(function() {
