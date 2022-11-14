@@ -11,6 +11,7 @@ class EspApiController extends Controller
     {
         $UIDresult = $request->UIDresult;
         $Write="<?php $" . "UIDresult='" . $UIDresult . "'; " . "echo $" . "UIDresult;" . " ?>";
+        file_put_contents(resource_path('views/UIDContainer.blade.php'),$Write);
         return view('api', compact('Write'));
     }
 
