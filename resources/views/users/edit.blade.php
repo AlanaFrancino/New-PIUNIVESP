@@ -1,10 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('flash-message')
-<?php
-$Write="<?php $" . "UIDresult=''; " . "echo $" . "UIDresult;" . " ?>";
-file_put_contents(resource_path('views/UIDContainer.blade.php'),$Write) 
-?>
+
 <script>
     $(document).ready(function(){
          $("#getUID").load("{{ route('UIDContainer') }}");

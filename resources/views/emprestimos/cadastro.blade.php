@@ -3,10 +3,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 @section('content')
-<?php
-$Write="<?php $" . "UIDresult=''; " . "echo $" . "UIDresult;" . " ?>";
-file_put_contents(resource_path('views/UIDContainer.blade.php'),$Write) 
-?>
+
 <script>
     $(document).ready(function(){
          $("#getUID").load("{{ route('UIDContainer') }}");

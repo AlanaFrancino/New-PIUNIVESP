@@ -7,8 +7,7 @@
     "post-install-cmd": [
         "php artisan clear-compiled",
         "chmod -R 775 public/",
-        "chmod -R 775 resources/",
-        "chmod -R 775 resources/views"
+        "chmod -R 775 resources/"
     ],
     "require": {
         "php": "^7.3|^8.0",
