@@ -58,7 +58,7 @@ class UserController extends Controller
             $buscatag = User::where('tag', $tag )->count();
        
             if($buscatag > 0){
-                return redirect()->route('users.create')->with('warning','Tag ja cadastrada em outro ususario');
+                return redirect()->route('users.create')->with('warning','Tag ja cadastrada em outro usuario');
             }   
         }
         
@@ -142,7 +142,7 @@ class UserController extends Controller
             $buscatag = User::where('tag', $tag )->where('id','!=', $id)->count();
         
             if($buscatag > 0){
-                return redirect()->back()->with('warning','Tag ja cadastrada em outro ususario');
+                return redirect()->back()->with('warning','Tag ja cadastrada em outro usuario');
             }   
         }
         
